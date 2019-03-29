@@ -48,9 +48,18 @@
  
        - name: Print output
          debug:
-           var: results.stdout
+           var: results.stdout_lines
+
+       - name: check_python
+         shell: docker --version && pip --version && docker-compose --version
+         register: all_results
+       - name: ckeck_results
+         debug:
+           var: all_results.stdout_lines
+               
      when: ansible_facts['distribution'] == 'Amazon'
 
 
 
 # yum install http://mirror.centos.org/centos/7/extras/x86_64/Packages/container-selinux-2.68-1.el7.noarch.rpm
+# yum install git
