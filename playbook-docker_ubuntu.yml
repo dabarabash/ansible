@@ -50,4 +50,4 @@
        - name: Print output
          debug:
            var: results.stdout
-     when: ansible_facts['distribution'] == 'RedHat'
+     when: ansible_facts['distribution'] == 'Ubuntu'
